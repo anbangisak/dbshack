@@ -1,6 +1,5 @@
 import pandas as pd
 import numpy as np
-import pyodbc
 import pymysql
 from datetime import date,datetime, timedelta
 from sklearn.ensemble import RandomForestClassifier
@@ -82,15 +81,21 @@ conn_str = (
     )
 
 
-conn = pymysql.connect("3.83.223.55","mysql","mysql","dbs")
+conn = pymysql.connect("localhost","root","mysql","dbs")
 
 
 
 print(conn)
 
+dfNew['date'] = dfNew['year']+"-"+dfNew['month']+"-"+dfNew['day']
+dfNewLoad = pd.DataFrame(columns=['Stock','date'])
+dfNewLoad['Stock'] = dfNew['Stock']
+dfNewLoad['date'] = dfNew['date']
+
+
 cursor = conn.cursor()
 for index, row in dfNew.iterrows():
-    cursor.execute(query, tuple(row['Stock'],row['year']+"-"+row['month']+"-"+row['day']))
+    cursor.execute(query, tuple(row])
     conn.commit()
 
 
