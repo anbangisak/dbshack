@@ -24,7 +24,7 @@ protobuf==3.10.0
 public==2019.4.13
 Pydap==3.2.2
 PyMySQL==0.9.3
-pyodbc==4.0.27
+# pyodbc==4.0.27
 pyparsing==2.4.4
 python-dateutil==2.8.1
 pytz==2019.3

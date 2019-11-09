@@ -1,7 +1,7 @@
 # from input import input_db_details, output_db_details
 import Transform as tfm
 import Load as load
-import pyodbc
+# import pyodbc
 import Extract as ext
 # import TweetExtract as twt
 import sqlite3
@@ -21,7 +21,7 @@ def getConnectionODBC(driver):
     )
     error = ''
     try:
-        conn = pymysql.connect("localhost","root","","dbs" )
+        conn = pymysql.connect("localhost","root","mysql","dbs" )
         # conn = pyodbc.connect(conn_str)
     # except pyodbc.Error as err:
     except Exception as err:
@@ -43,7 +43,7 @@ def initiateConnection(type):
 
 def startExtract(conn):
 
-    dataDFList = pd.read_csv("/home/ec2-user/db_hack2/dbshack/stockprices.csv")
+    dataDFList = pd.read_csv("stockprices.csv")
     return dataDFList
 
 def main():
