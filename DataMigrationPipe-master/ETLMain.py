@@ -43,7 +43,7 @@ def initiateConnection(type):
 
 def startExtract(conn):
 
-    dataDFList = pd.read_csv("a.csv")
+    dataDFList = pd.read_csv("/home/ec2-user/db_hack2/dbshack/stockprices.csv")
     return dataDFList
 
 def main():
